@@ -6,7 +6,7 @@ class List extends Component {
     return (
       <ul>
         {this.props.items.map((item, index) => (
-          <ListItem key={index} text={item.text} />
+          <ListItem key={index} text={item.text} id={item.id} onRemoveItem={this.props.onRemoveItem} />
         ))}
       </ul>
     );

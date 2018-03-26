@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './main.scss';
 import Empty from './js/Empty';
-import List from './js/List';
+import ListViewer from './js/ListViewer';
 
 class App extends Component {
-  // constructor() {
-  //   super(props);
-  // }
   state = {
-    show: false,
+    show: true,
   }
 
   showList = () => {
     switch(this.state.show) {
     case true:
-      return (<List items={[{ text: 'one' }, { text: 'two' }]} />);
+      return (<ListViewer />);
     case false:
     default:
       return (<Empty />);
@@ -26,7 +23,9 @@ class App extends Component {
     return (
       <div>
         Here's where our app goes!
-        <button onClick={(e) => {this.setState({show: !this.state.show});}}>Toggle List!</button>
+        <div>
+          <button onClick={() => {this.setState({show: !this.state.show});}}>Show Me The List</button>
+        </div>
         { this.showList()}
       </div>
     );

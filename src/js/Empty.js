@@ -1,10 +1,8 @@
 import React from 'react';
 
 const Empty = () => (
-  <div>
-    <div>
-      Nothin' to see here...
-    </div>
+  <div className="empty">
+    Nothin' to see here...
   </div>
 );
 
