@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import Empty from './js/Empty';
+import List from './js/List';
 
 class App extends Component {
+  // constructor() {
+  //   super(props);
+  // }
+  state = {
+    show: false,
+  }
+
+  showList = () => {
+    switch(this.state.show) {
+    case true:
+      return (<List items={[{ text: 'one' }, { text: 'two' }]} />);
+    case false:
+    default:
+      return (<Empty />);
+    }
+  }
+  
   render() {
     return (
-      <h1>Hello World</h1>
+      <div>
+        Here's where our app goes!
+        <button onClick={(e) => {this.setState({show: !this.state.show});}}>Toggle List!</button>
+        { this.showList()}
+      </div>
     );
   }
 }
