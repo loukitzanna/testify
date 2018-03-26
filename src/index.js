@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import './main.scss';
 import Empty from './js/Empty';
 import List from './js/List';
 

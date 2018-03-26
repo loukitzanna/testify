@@ -1,0 +1,19 @@
+button {
+  padding: 6px 8px;
+  border-color: transparent;
+  background: transparent;
+  cursor: pointer;
+}
+
+button { //themed
+  border-radius: 2px;
+  background-color: #C3EB78;
+  color: #1C5253;
+
+  &.danger {
+    color: #B6174B;
+    border-color: #B6174B;
+    background: transparent;
+  }
+}
+
