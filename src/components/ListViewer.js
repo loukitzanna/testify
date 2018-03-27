@@ -1,50 +1,43 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { assignId } from '../utilities';
+import { add, del } from '../actions';
 import List from './List';
 import Empty from './Empty';
-import { assignId } from '../utilities';
 
 class ListViewer extends Component {
-  state = {
-    items: [
-      { text: 'one', id: 0 },
-      { text: 'two', id: 1 },
-    ]
-  }
-
-  handleAddItem = (e) => {
+  onAddItem = (e) => {
     e.preventDefault();
+    const { items } = this.props;
     const input = this.input;
     const text = input.value;
-    this.setState((prevState) => {
-      const id = assignId(prevState.items, prevState.items.length);
-      return ({
-        items: [...prevState.items, { text, id }]
-      });
+    const id = assignId(items, items.length);
+    this.props.handleAddItem({
+      id,
+      text
     });
 
     input.value = '';
   }
 
-  handleRemoveItem = (id) => (e) => {
+  handleRemoveItem = (item) => (e) => {
     e.preventDefault();
-
-    this.setState((prevState) => ({
-      items: prevState.items.filter(e => e.id != id),
-    }));
+    this.props.handleRemoveItem(item);
   }
 
   render() {
+    const { items } = this.props;
     return (
       <div>
         {
-          this.state.items.length > 0 ?
-            <List items={this.state.items} onRemoveItem={this.handleRemoveItem} /> :
+          items.length > 0 ? 
+            <List items={items} onRemoveItem={this.handleRemoveItem}/> :
             <Empty />
         }
 
         <div>
-          <form onSubmit={this.handleAddItem}>
-            <input ref={(e) => { this.input = e; }} required type="text" />
+          <form onSubmit={this.onAddItem}>
+            <input ref={(e) => { this.input = e; }}  required type="text" />
             <button type="submit">Add Item</button>
           </form>
         </div>
@@ -53,4 +46,12 @@ class ListViewer extends Component {
   }
 }
 
-export default ListViewer;
+export default connect(
+  (state) => ({
+    items: state.list.items
+  }),
+  (dispatch) => ({
+    handleAddItem: (item) => dispatch(add(item)),
+    handleRemoveItem: (item) => dispatch(del(item)),
+  }),
+)(ListViewer);
