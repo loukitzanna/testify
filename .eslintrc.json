@@ -6,6 +6,9 @@
     "mocha": true,
     "node": true
   },
+  "globals": {
+    "expect": true
+  },
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
   "parserOptions": {

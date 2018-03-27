@@ -3,6 +3,7 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
 import React from 'react';
+import chai from 'chai';
 
 configure({ adapter: new Adapter() });
 
@@ -19,6 +20,7 @@ function copyProps(src, target) {
   Object.defineProperties(target, props);
 }
 
+global.expect = chai.expect;
 global.React = React;
 global.window = window;
 global.document = window.document;
