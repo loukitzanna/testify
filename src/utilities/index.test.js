@@ -29,4 +29,15 @@ describe('assignId', () => {
     const initialId = 2;
     expect(assignId(array, initialId)).to.be.equal(5);
   });
+
+  it('will not assign a duplicate id ', () => {
+    const array = [
+      { id: 0 },
+      { id: 2 },
+      { id: 3 },
+      { id: 4 }
+    ];
+    const initialId = 2;
+    expect(assignId(array, initialId)).not.to.be.equal(4);
+  });
 });

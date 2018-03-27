@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import List from './List';
 import Empty from './Empty';
+import { assignId } from '../utilities';
 
 class ListViewer extends Component {
   state = {
@@ -14,9 +15,12 @@ class ListViewer extends Component {
     e.preventDefault();
     const input = this.input;
     const text = input.value;
-    this.setState((prevState) => ({
-      items: [...prevState.items, { text, id: prevState.items.length }]
-    }));
+    this.setState((prevState) => {
+      const id = assignId(prevState.items, prevState.items.length);
+      return ({
+        items: [...prevState.items, { text, id }]
+      });
+    });
 
     input.value = '';
   }
