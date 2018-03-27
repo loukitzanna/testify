@@ -8,18 +8,20 @@
   "scripts": {
     "start": "parcel serve --open src/index.html",
     "build": "parcel build --public-url ./ src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require babel-core/register src/**/*.test.js src/**/**/*.test.js --recursive"
   },
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.0.0-beta.42",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
@@ -27,6 +29,7 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^5.0.5",
     "node-sass": "^4.8.3"
   }
 }

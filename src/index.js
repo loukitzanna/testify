@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './main.scss';
-import Empty from './js/Empty';
-import ListViewer from './js/ListViewer';
+import Empty from './components/Empty';
+import ListViewer from './components/ListViewer';
 
 class App extends Component {
   state = {
