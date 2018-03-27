@@ -4,6 +4,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
 import React from 'react';
 import chai from 'chai';
+import sinonChai from 'sinon-chai';
+
+chai.use(sinonChai);
 
 configure({ adapter: new Adapter() });
 
