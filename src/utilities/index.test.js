@@ -7,18 +7,18 @@ test('will assign an id (optimally)', (t) => {
     { id: 1 }
   ];
   const initialId = 2;
-  t(assignId(array, initialId), 2);
+  t.is(assignId(array, initialId), 2);
 });
-test.skip('will assign an id (normally)', () => {
+test('will assign an id (normally)', (t) => {
   const array = [
     { id: 0 },
     { id: 2 }
   ];
   const initialId = 2;
-  expect(assignId(array, initialId)).toBe(3);
+  t.is(assignId(array, initialId), 3);
 });
 
-test.skip('will assign an id (suboptimally)', () => {
+test('will assign an id (suboptimally)', (t) => {
   const array = [
     { id: 0 },
     { id: 2 },
@@ -26,5 +26,5 @@ test.skip('will assign an id (suboptimally)', () => {
     { id: 4 }
   ];
   const initialId = 2;
-  expect(assignId(array, initialId)).toBe(5);
+  t.is(assignId(array, initialId), 5);
 });
