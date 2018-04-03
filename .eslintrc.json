@@ -2,9 +2,13 @@
   "root": true,
   "env": {
     "browser": true,
-      "es6": true
+    "es6": true,
+    "jest/globals": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
@@ -14,7 +18,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "jest"
   ],
   "rules": {
     "indent": [
