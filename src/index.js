@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './main.scss';
-import Empty from './js/Empty';
-import ListViewer from './js/ListViewer';
+import Empty from './components/Empty';
+import ListViewer from './components/ListViewer';
 
 class App extends Component {
   state = {
@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   showList = () => {
-    switch(this.state.show) {
+    switch (this.state.show) {
     case true:
       return (<ListViewer />);
     case false:
@@ -18,15 +18,15 @@ class App extends Component {
       return (<Empty />);
     }
   }
-  
+
   render() {
     return (
       <div>
         Here's where our app goes!
         <div>
-          <button onClick={() => {this.setState({show: !this.state.show});}}>Show Me The List</button>
+          <button onClick={() => { this.setState({ show: !this.state.show }); }}>Show Me The List</button>
         </div>
-        { this.showList()}
+        {this.showList()}
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import List from './List';
 import Empty from './Empty';
+import { assignId } from '../utilities';
 
 class ListViewer extends Component {
   state = {
@@ -14,9 +15,12 @@ class ListViewer extends Component {
     e.preventDefault();
     const input = this.input;
     const text = input.value;
-    this.setState((prevState) => ({
-      items: [...prevState.items, { text, id: prevState.items.length }]
-    }));
+    this.setState((prevState) => {
+      const id = assignId(prevState.items, prevState.items.length);
+      return ({
+        items: [...prevState.items, { text, id }]
+      });
+    });
 
     input.value = '';
   }
@@ -33,14 +37,14 @@ class ListViewer extends Component {
     return (
       <div>
         {
-          this.state.items.length > 0 ? 
-            <List items={this.state.items} onRemoveItem={this.handleRemoveItem}/> :
+          this.state.items.length > 0 ?
+            <List items={this.state.items} onRemoveItem={this.handleRemoveItem} /> :
             <Empty />
         }
-        
+
         <div>
           <form onSubmit={this.handleAddItem}>
-            <input ref={(e) => { this.input = e; }}  required type="text" />
+            <input ref={(e) => { this.input = e; }} required type="text" />
             <button type="submit">Add Item</button>
           </form>
         </div>

@@ -1,6 +1,6 @@
 export const assignId = (arr, id) => {
   for(let e in arr) {
-    if (e.id === id ){
+    if (arr[e].id === id) {
       return assignId(arr, id+1);
     }
   }
