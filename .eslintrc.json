@@ -2,7 +2,8 @@
   "root": true,
   "env": {
     "browser": true,
-      "es6": true
+    "es6": true,
+    "jasmine": true
   },
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
@@ -14,7 +15,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "jasmine"
   ],
   "rules": {
     "indent": [
