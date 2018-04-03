@@ -1,5 +1,5 @@
-import { ADD_ITEM, DELETE_ITEM } from '../constants';
-import { add, del } from '~/src/actions/index';
+import { ADD_ITEM, DELETE_ITEM } from '../../src/constants';
+import { add, del } from '../../src/actions/index';
 
 const ITEM = {
   text: 'asdf',
@@ -9,7 +9,7 @@ const ITEM = {
 describe('Actions', () => {
   describe('Add Item', () => {
     it('dispatches ADD_ITEM', () => {
-      expect(add(ITEM)).to.deep.equal({
+      expect(add(ITEM)).toEqual({
         type: ADD_ITEM,
         item: ITEM
       });
@@ -17,7 +17,7 @@ describe('Actions', () => {
   });
   describe('Delete Item', () => {
     it('dispatches DELETE_ITEM', () => {
-      expect(del(ITEM)).to.deep.equal({
+      expect(del(ITEM)).toEqual({
         type: DELETE_ITEM,
         item: ITEM
       });
