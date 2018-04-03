@@ -4,6 +4,9 @@
     "react"
   ],
   "plugins": [
-    "transform-class-properties"
-  ]
+    "transform-class-properties",
+    "syntax-object-rest-spread",
+    "transform-object-rest-spread"
+  ],
+  "modules": true
 }
